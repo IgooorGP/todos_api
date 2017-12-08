@@ -8,7 +8,9 @@ router.use("/api/todos", require("./todos.js"));
 /* UNPREFIXED ROUTES */
 // root route
 router.get("/", function(req, res) {
-    res.send("hi from the root route :)!");
+    //res.sendFile("index2.html", {root: "views"});
+
+    res.render("index.ejs");
 });
 
 module.exports = router;
