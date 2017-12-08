@@ -1,4 +1,4 @@
-# todos_api
+# ToDos API
 
 Small API that is used by a single page app that allows the user to manage his daily tasks.
 
