@@ -1,0 +1,23 @@
+{
+  "name": "todos_api",
+  "version": "1.0.0",
+  "description": "todos API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgooorGP/todos_api.git"
+  },
+  "author": "IGP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgooorGP/todos_api/issues"
+  },
+  "homepage": "https://github.com/IgooorGP/todos_api#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
+  }
+}
