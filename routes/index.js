@@ -1,10 +1,18 @@
+// file must initialize all the routes with their prefixes (if necessary)
 var express = require("express"),
     router  = express.Router();
 
-// add home route to the router
+/* PREFIXED ROUTES */
+router.use("/api/todos", require("./todos.js"));
+
+/* UNPREFIXED ROUTES */
+
+// root route
 router.get("/", function(req, res) {
-    res.json({hello: "world"});
+    res.send("hi from the root route :)!");
 });
 
-// export the router to the main index.js
 module.exports = router;
+
+
+
