@@ -32,24 +32,54 @@ router.post("/", function(req, res) {
 	res.status(201).json(newToDo);
     }).catch(function(err) {
 	// sends error msg if it fails
-	res.send("ERROR");
+	res.send(err);
     });
     
 });
 
 // SHOW route 
 router.get("/:id", function(req, res) {
-    // gets the route variable from the HTTP GET request header
+    // gets the route variable from the HTTP request header
     var id = req.params.id;
 
     // queries the DB to find
     models.Todo.findById(id).then(function(toDo) {
 	// sends JSON back
 	res.json(toDo); 
-    }).catch(function() {
+    }).catch(function(err) {
 	// sends error if any
-	res.send("Nothing found :(!");
+	res.send("Nothing found: " + err);
     });    
+});
+
+// UPDATE route
+router.put("/:id", function(req, res) {
+    // gets the route variable from the HTTP request header
+    var id = req.params.id;
+
+    // finds a toDo by its Id and updates it
+    // returns the new updated toDo {new: true}
+    models.Todo.findByIdAndUpdate(id, req.body, {new: true}).then(function(updatedToDo) {
+	// returns the updated toDo as JSON
+	res.json(updatedToDo);
+    }).catch(function(err) {
+	// sends error if any
+	res.send(err);	
+    });
+});
+
+// DELETE route
+router.delete("/:id", function(req, res) {
+    // gets the route variable from the HTTP request header
+    var id = req.params.id;
+    
+    models.Todo.findByIdAndRemove(id).then(function () {
+	res.json({message: "sucessfully deleted toDo!"});
+    }).catch(function(error) {
+	// sends error if any
+	res.send(err);
+    });
+    
 });
 
 // export the todos router
