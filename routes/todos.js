@@ -1,8 +1,13 @@
-var express = require("express"),
-    router  = express.Router(),
-    models  =  require("../models") ;
+var express    = require("express"),
+    router     = express.Router(),
+    models     = require("../models"),
+    bodyParser = require("body-parser"); // to access POST body data -> req.body
 
 /* prefix = /api/todos */
+
+// uses bodyParser middleware that parses JSON/URL encoded content in HTTP bodies
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended: true}));
 
 // INDEX route
 router.get("/", function(req, res) {
@@ -18,7 +23,17 @@ router.get("/", function(req, res) {
 
 // CREATE route
 router.post("/", function(req, res) {
-    res.send("hi");
+
+    // inserts the key-value pairs of the HTTP body into the database
+    // ignores keys that aren't in the schema
+    models.Todo.create(req.body).then(function(newTodo) {
+	// sends json to say everything was fine
+	// with 201 status: resource was created
+	res.status(201).json(newTodo);
+    }).catch(function(err) {
+	// sends error msg if it fails
+	res.send("ERROR");
+    });
 });
 
 
