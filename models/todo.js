@@ -17,6 +17,7 @@ var todoSchema = new mongoose.Schema({
 });
 
 // Schema compilation into a model
+// Todos is the collection in mongo
 var Todo = mongoose.model('Todo', todoSchema);
 
 // exports Todo model

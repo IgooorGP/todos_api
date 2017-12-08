@@ -6,7 +6,6 @@ var express = require("express"),
 router.use("/api/todos", require("./todos.js"));
 
 /* UNPREFIXED ROUTES */
-
 // root route
 router.get("/", function(req, res) {
     res.send("hi from the root route :)!");
