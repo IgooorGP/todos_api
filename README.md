@@ -1,6 +1,6 @@
 # Todos API (Node.js Version)
 
-API created with Node.js that allow users to manage their daily tasks (To Dos!). A more robust version was created using Spring boot check my todos repository.
+API created with Node.js that allow users to manage their daily tasks (To Dos!). For a more robust/complete version created using Spring Boot, check my /todos repository.
 
 ## Features
 
