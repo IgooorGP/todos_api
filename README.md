@@ -1,8 +1,10 @@
-# toDos API
+# Todos API (Node.js Version)
 
-Small API that is used by a single page app that allows the user to manage his daily tasks (toDos!).
+API created with Node.js that allow users to manage their daily tasks (To Dos!). A more robust version was created using Spring boot check my todos repository.
 
-* Created using node.js
-* Uses mongoDB
-* All CRUD functionalities for toDos
+## Features
+
+* Created using Node.js and Express;
+* Based on mongoDB;
+* All CRUD functionalities for toDos.
 
